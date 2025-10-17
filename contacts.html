@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub — Контакти</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <nav class="sidebar" aria-label="Основна навігація">
+      <div class="filter-block auth-block">
+        <div class="auth-text">Керування акаунтом</div>
+        <div class="auth-actions">
+          <button
+            class="auth-actions__btn auth-actions__btn--primary"
+            type="button"
+            onclick="openModal('loginModal')"
+          >
+            Sing In
+          </button>
+          <button
+            class="auth-actions__btn"
+            type="button"
+            onclick="openModal('registerModal')"
+          >
+            Sing Up
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button class="filter-block nav-trigger" type="button">
+          Меню розділів
+        </button>
+        <ul class="nav-items">
+          <li class="nav-item">
+            <div class="filter-block favorite-block" tabindex="0">
+              Обране
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="filter-block language-block" tabindex="0">
+              Змінити мову
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="main.html" class="filter-block home-block">Головна</a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="filter-block contacts-block">
+              Контакти
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="filter-block info-block">
+              Про проєкт
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+      <header class="site-header">
+        <a href="main.html" class="site-header__home">
+          <img
+            src="Image/logo.png"
+            alt="Логотип GameHub"
+            class="site-header__logo">
+          
+          <div class="site-header__text">
+            <div class="site-header__title">GameHub</div>
+            <div class="site-header__tagline">Каталог ігор та спільнота геймерів</div>
+          </div>
+        </a>
+        <a href="#" class="site-header__pulse" onclick="openRegisterModal(event)">
+          Разом граємо
+        </a>
+      </header>
+
+      <main class="main-content">
+        <div class="page-content page-content--contacts">
+          <section class="contact-hero">
+            <h1>Зв’яжись із нашою командою 🎮</h1>
+            <p>
+              Маєш ідею, знайшов баг чи хочеш поділитися враженнями? Ми завжди
+              відкриті до спілкування з геймерами! Напиши нам — і ми обов’язково
+              відповімо.
+            </p>
+          </section>
+
+          <section class="contact-details-card">
+            <h2>Як нас знайти</h2>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-icon">📧</span>
+                <strong>Email:</strong>
+                <a href="mailto:support@gamehub.com">support@gamehub.com</a>
+              </li>
+              <li>
+                <span class="contact-icon">📞</span>
+                <strong>Телефон:</strong>
+                <a href="tel:+380971234567">+38 (097) 123-45-67</a>
+              </li>
+              <li>
+                <span class="contact-icon">📍</span>
+                <strong>Офіс:</strong>
+                Берестейський проспект, 37, Київ, 03056
+              </li>
+              <li>
+                <span class="contact-icon">💬</span>
+                <strong>Наш чат:</strong>
+                <a href="https://t.me/SupportGameHub" target="_blank" rel="noreferrer">
+                  Telegram @SupportGameHub
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <section class="contact-support">
+            <h2>🕓 Графік підтримки</h2>
+            <p>
+              Ми на зв’язку з понеділка по п’ятницю з 09:00 до 18:00 (за київським
+              часом).
+            </p>
+            <p class="contact-support__note">
+              А якщо напишеш пізніше — не хвилюйся! Ми відповімо, щойно завершимо
+              битву з фінальним босом ;)
+            </p>
+          </section>
+
+          <section class="contact-form-card">
+            <h2>Форма зворотного зв’язку</h2>
+            <form id="contactForm">
+              <div class="form-row">
+                <label for="contactName">Ім’я</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  placeholder="Введіть ім’я"
+                  required
+                >
+              </div>
+              <div class="form-row">
+                <label for="contactEmail">Email</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                >
+              </div>
+              <div class="form-row">
+                <label for="contactSubject">Тема</label>
+                <input
+                  type="text"
+                  id="contactSubject"
+                  name="subject"
+                  placeholder="Коротко опишіть запит"
+                  required
+                >
+              </div>
+              <div class="form-row">
+                <label for="contactMessage">Повідомлення</label>
+                <textarea
+                  id="contactMessage"
+                  name="message"
+                  rows="5"
+                  placeholder="Розкажіть, як ми можемо допомогти"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-row">
+                <button type="submit" class="modal-btn">Надіслати повідомлення</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img src="Image/logo.png" alt="Логотип GameHub" class="site-footer__logo">
+            <div>
+              <p class="site-footer__title">GameHub</p>
+              <p class="site-footer__tagline">Каталог ігор та спільнота геймерів</p>
+            </div>
+          </div>
+          <nav class="site-footer__nav" aria-label="Нижня навігація">
+            <a href="main.html">Головна</a>
+            <a href="about.html">Про проєкт</a>
+            <a href="contacts.html">Контакти</a>
+          </nav>
+          <div class="site-footer__social">
+            <p class="site-footer__social-label">Ми на зв'язку</p>
+            <div class="site-footer__social-links">
+              <a
+                href="https://t.me/SupportGameHub"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Telegram"
+              >
+                <img src="Image/telegram.png" alt="Telegram">
+              </a>
+              <a href="viber://chat?number=%2B380971234567" aria-label="Viber">
+                <img src="Image/viber.png" alt="Viber">
+              </a>
+              <a
+                href="https://instagram.com/gamehub"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <img src="Image/instagram.png" alt="Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p>&copy; 2025 GameHub. Ми завжди поруч, щоб допомогти.</p>
+          <p>Написати нам легко у будь-якому зручному месенджері.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Вхід до акаунта</h2>
+          <button class="modal-close" onclick="closeModal('loginModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-form">
+          <input
+            type="text"
+            placeholder="Логін"
+            class="modal-input"
+            id="modalLoginInput"
+          >
+          <input
+            type="password"
+            placeholder="Пароль"
+            class="modal-input"
+            id="modalPasswordInput"
+          >
+          <button class="modal-btn" onclick="handleModalLogin()">Увійти</button>
+        </div>
+        <div class="modal-switch">
+          Немає акаунта?
+          <button class="modal-switch-btn" onclick="switchToRegister()">
+            Зареєструватися
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="registerModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Створення акаунта</h2>
+          <button class="modal-close" onclick="closeModal('registerModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-form">
+          <input
+            type="text"
+            placeholder="Логін"
+            class="modal-input"
+            id="modalRegisterLogin"
+          >
+          <input
+            type="password"
+            placeholder="Пароль"
+            class="modal-input"
+            id="modalRegisterPassword"
+          >
+          <input
+            type="password"
+            placeholder="Підтвердьте пароль"
+            class="modal-input"
+            id="modalRegisterPasswordConfirm"
+          >
+          <button class="modal-btn" onclick="handleModalRegister()">
+            Створити акаунт
+          </button>
+        </div>
+        <div class="modal-switch">
+          Вже маєте акаунт?
+          <button class="modal-switch-btn" onclick="switchToLogin()">
+            Увійти
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+  </body>
+</html>
