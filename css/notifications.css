@@ -1,0 +1,76 @@
+/* Контейнер для повідомлень (фіксований у правому верхньому куті) */
+#notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; 
+}
+
+/* Одне повідомлення */
+.toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 400px;
+  background: #252525; /* Темний фон як у модалок */
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  
+  /* Анімація появи */
+  animation: slideInRight 0.4s ease forwards;
+  opacity: 0;
+  transform: translateX(100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Типи повідомлень */
+.toast.success {
+  border-left: 4px solid #00c851; 
+}
+
+.toast.error {
+  border-left: 4px solid #ff4444; 
+}
+
+.toast.info {
+  border-left: 4px solid #ffb77f; 
+
+}
+
+.toast-icon {
+  font-size: 1.3rem;
+}
+
+
+.toast.hide {
+  animation: fadeOutRight 0.4s ease forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutRight {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
