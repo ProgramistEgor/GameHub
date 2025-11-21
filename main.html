@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub — Головна</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="filter-block auth-block"></div>
+
+      <div class="nav-dropdown">
+        <button class="filter-block nav-trigger" data-i18n="nav.menu_title">Меню розділів</button>
+        <ul class="nav-items">
+          <li class="nav-item">
+            <a href="main.html" class="filter-block home-block" style="color:#ffb77f;border-color:#ffb77f" data-i18n="nav.home">Головна</a>
+          </li>
+          <li class="nav-item">
+            <a href="favorites.html" class="filter-block favorite-block" data-i18n="nav.favorites">Обране</a>
+          </li>
+          <li class="nav-item">
+            <div class="filter-block language-block" tabindex="0" data-i18n="nav.lang">
+              Змінити мову (UK)
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="filter-block contacts-block" data-i18n="nav.contacts">Контакти</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="filter-block info-block" data-i18n="nav.about">Про проєкт</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+      <header class="site-header">
+        <a href="main.html" class="site-header__home">
+          <img src="Image/logo.png" alt="Logo" class="site-header__logo">
+          <div class="site-header__text">
+            <div class="site-header__title">GameHub</div>
+            <div class="site-header__tagline" data-i18n="header.tagline">Каталог ігор та спільнота геймерів</div>
+          </div>
+        </a>
+        <a href="#" class="site-header__pulse" onclick="openRegisterModal(event)" data-i18n="header.pulse">
+          Разом граємо
+        </a>
+      </header>
+
+      <main class="main-content">
+        <section class="main-search">
+          <div class="search-card">
+            <div class="search-bar">
+              <span class="search-bar__icon">&#128269;</span>
+              <input type="text" class="search-input" id="searchInput" data-i18n="search.placeholder" placeholder="Пошук ігор...">
+              <button class="search-button" id="searchButton" type="button" data-i18n="search.btn">Знайти</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="games-section">
+          <div class="games-section__intro">
+            <h2 id="gamesGridTitle" data-i18n="catalog.title">Каталог ігор</h2>
+            <p data-i18n="catalog.desc">Переглядайте добірки проєктів з актуальними обкладинками...</p>
+          </div>
+          <div class="games-grid" id="gamesGrid"></div>
+          <div id="searchMessage" class="search-message" style="display: none"></div>
+        </section>
+      </main>
+
+            <footer class="site-footer">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img src="Image/logo.png" alt="Logo" class="site-footer__logo">
+            <div>
+              <p class="site-footer__title">GameHub</p>
+              <p class="site-footer__tagline" data-i18n="header.tagline">Каталог...</p>
+            </div>
+          </div>
+          <nav class="site-footer__nav">
+            <a href="main.html" data-i18n="nav.home">Головна</a>
+            <a href="about.html" data-i18n="nav.about">Про нас</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
+          </nav>
+          <div class="site-footer__social">
+            <p class="site-footer__social-label" data-i18n="footer.connect">Ми на зв'язку</p>
+            <div class="site-footer__social-links">
+              <a href="https://t.me/SupportGameHub" target="_blank" rel="noreferrer" aria-label="Telegram">
+                <img src="Image/telegram.png" alt="Telegram">
+              </a>
+              <a href="https://www.viber.com/" target="_blank" rel="noreferrer" aria-label="Viber">
+                <img src="Image/viber.png" alt="Viber">
+              </a>
+              <a href="https://instagram.com/GameHub" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <img src="Image/instagram.png" alt="Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p data-i18n="footer.copyright">&copy; 2025 GameHub...</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="gameDetailsModal">
+      <div class="modal" style="width: min(900px, 95%);">
+        <button class="modal-close" onclick="closeModal('gameDetailsModal')" style="position:absolute; top:15px; right:15px; z-index:10">&times;</button>
+        <div class="game-modal-content">
+          <img src="" alt="Cover" class="game-modal-img" id="gd-img">
+          <div class="game-modal-info">
+             <h2 class="game-modal-title" id="gd-title"></h2>
+             <div class="game-modal-meta">
+                <span class="meta-item"><strong id="gd-lbl-genre">Жанр:</strong> <span id="gd-val-genre"></span></span>
+                <span class="meta-item"><strong id="gd-lbl-rating">Рейтинг:</strong> <span id="gd-val-rating" class="rating-val"></span></span>
+             </div>
+             <p class="game-modal-desc" id="gd-desc"></p>
+             <div class="game-reviews-section">
+                <span class="game-reviews-title" id="gd-rev-title">Відгуки</span>
+                <div id="gd-rev-list" class="reviews-list"></div>
+                <div id="gd-rev-form"></div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title" data-i18n="modal.login.title">Вхід до акаунта</h2>
+          <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+        </div>
+        <form class="modal-form" onsubmit="handleModalLogin(event)">
+          <input type="text" class="modal-input" id="modalLoginInput" required minlength="4" data-i18n="modal.placeholder.login" placeholder="Логін">
+          <input type="password" class="modal-input" id="modalPasswordInput" required data-i18n="modal.placeholder.pass" placeholder="Пароль">
+          <button class="modal-btn" type="submit" data-i18n="modal.login.btn">Увійти</button>
+        </form>
+        <div class="modal-switch">
+           <span data-i18n="modal.no_account">Немає акаунта?</span>
+           <button class="modal-switch-btn" onclick="switchToRegister()" data-i18n="nav.signup">Реєстрація</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="registerModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title" data-i18n="modal.register.title">Створення акаунта</h2>
+          <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+        </div>
+        <form class="modal-form" onsubmit="handleModalRegister(event)">
+          <input type="text" class="modal-input" id="modalRegisterLogin" required minlength="4" data-i18n="modal.placeholder.login" placeholder="Логін">
+          <input type="password" class="modal-input" id="modalRegisterPassword" required minlength="6" data-i18n="modal.placeholder.pass" placeholder="Пароль">
+          <input type="password" class="modal-input" id="modalRegisterPasswordConfirm" required data-i18n="modal.placeholder.pass_confirm" placeholder="Підтвердьте">
+          <button class="modal-btn" type="submit" data-i18n="modal.register.btn">Створити акаунт</button>
+        </form>
+        <div class="modal-switch">
+           <span data-i18n="modal.has_account">Вже маєте акаунт?</span>
+           <button class="modal-switch-btn" onclick="switchToLogin()" data-i18n="nav.signin">Вхід</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/modal.js"></script>
+    <script type="module" src="js/localization.js"></script>
+  </body>
+</html>

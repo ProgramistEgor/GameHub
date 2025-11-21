@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameHub вЂ” РџСЂРѕ РїСЂРѕС”РєС‚</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="filter-block auth-block"></div>
+      <div class="nav-dropdown">
+        <button class="filter-block nav-trigger" data-i18n="nav.menu_title">
+          РњРµРЅСЋ
+        </button>
+        <ul class="nav-items">
+          <li class="nav-item">
+            <a
+              href="main.html"
+              class="filter-block home-block"
+              data-i18n="nav.home"
+              >Р“РѕР»РѕРІРЅР°</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="favorites.html"
+              class="filter-block favorite-block"
+              data-i18n="nav.favorites"
+              >РћР±СЂР°РЅРµ</a
+            >
+          </li>
+          <li class="nav-item">
+            <div
+              class="filter-block language-block"
+              tabindex="0"
+              data-i18n="nav.lang"
+            >
+              РњРѕРІР°
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              href="contacts.html"
+              class="filter-block contacts-block"
+              data-i18n="nav.contacts"
+              >РљРѕРЅС‚Р°РєС‚Рё</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="about.html"
+              class="filter-block info-block"
+              style="color: #ffb77f; border-color: #ffb77f"
+              data-i18n="nav.about"
+              >РџСЂРѕ РїСЂРѕС”РєС‚</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+      <header class="site-header">
+        <a href="main.html" class="site-header__home">
+          <img src="Image/logo.png" class="site-header__logo" />
+          <div class="site-header__text">
+            <div class="site-header__title">GameHub</div>
+            <div class="site-header__tagline" data-i18n="header.tagline"></div>
+          </div>
+        </a>
+      </header>
+
+      <main class="main-content">
+        <div class="page-content page-content--about">
+                    <section class="about-hero">
+            <span class="about-badge">GameHub</span>
+            <h1 class="about-title" data-i18n="about.title">Про проєкт</h1>
+            <p class="about-lead" data-i18n="about.desc">
+              GameHub — платформа, що збирає ігри різних жанрів, допомагає знаходити новинки та зберігати улюблені в одному місці.
+            </p>
+          </section>
+
+                    <section class="about-description">
+            <h2 data-i18n="about.mission_title">Наше призначення</h2>
+            <p data-i18n="about.mission_desc">
+              Ми хочемо полегшити гравцям шлях від відкриття гри до перших вражень: показуємо добірки, даємо короткі огляди, дозволяємо швидко переходити до потрібних платформ та ділитися відгуками.
+            </p>
+          </section>
+
+                    <section class="about-team">
+            <h2 data-i18n="about.team_title">Команда</h2>
+            <p data-i18n="about.team_desc">Слюсар Александр, Тодощенко Євгеній, Сивенко Костянтин</p>
+          </section>
+        </div>
+      </main>
+
+            <footer class="site-footer">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img src="Image/logo.png" alt="Logo" class="site-footer__logo">
+            <div>
+              <p class="site-footer__title">GameHub</p>
+              <p class="site-footer__tagline" data-i18n="header.tagline">Каталог...</p>
+            </div>
+          </div>
+          <nav class="site-footer__nav">
+            <a href="main.html" data-i18n="nav.home">Головна</a>
+            <a href="about.html" data-i18n="nav.about">Про нас</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
+          </nav>
+          <div class="site-footer__social">
+            <p class="site-footer__social-label" data-i18n="footer.connect">Ми на зв'язку</p>
+            <div class="site-footer__social-links">
+              <a href="https://t.me/SupportGameHub" target="_blank" rel="noreferrer" aria-label="Telegram">
+                <img src="Image/telegram.png" alt="Telegram">
+              </a>
+              <a href="https://www.viber.com/" target="_blank" rel="noreferrer" aria-label="Viber">
+                <img src="Image/viber.png" alt="Viber">
+              </a>
+              <a href="https://instagram.com/GameHub" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <img src="Image/instagram.png" alt="Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p data-i18n="footer.copyright">&copy; 2025 GameHub...</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Р’С…С–Рґ</h2>
+          <button class="modal-close" onclick="closeModal('loginModal')">
+            &times;
+          </button>
+        </div>
+        <form class="modal-form" onsubmit="handleModalLogin(event)">
+          <input
+            type="text"
+            class="modal-input"
+            id="modalLoginInput"
+            required
+            placeholder="Р›РѕРіС–РЅ"
+          />
+          <input
+            type="password"
+            class="modal-input"
+            id="modalPasswordInput"
+            required
+            placeholder="РџР°СЂРѕР»СЊ"
+          />
+          <button class="modal-btn" type="submit">РЈРІС–Р№С‚Рё</button>
+        </form>
+        <div class="modal-switch">
+          <button class="modal-switch-btn" onclick="switchToRegister()">
+            Р РµС”СЃС‚СЂР°С†С–СЏ
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay" id="registerModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Р РµС”СЃС‚СЂР°С†С–СЏ</h2>
+          <button class="modal-close" onclick="closeModal('registerModal')">
+            &times;
+          </button>
+        </div>
+        <form class="modal-form" onsubmit="handleModalRegister(event)">
+          <input
+            type="text"
+            class="modal-input"
+            id="modalRegisterLogin"
+            required
+            minlength="4"
+            placeholder="Р›РѕРіС–РЅ"
+          />
+          <input
+            type="password"
+            class="modal-input"
+            id="modalRegisterPassword"
+            required
+            minlength="6"
+            placeholder="РџР°СЂРѕР»СЊ"
+          />
+          <input
+            type="password"
+            class="modal-input"
+            id="modalRegisterPasswordConfirm"
+            required
+            placeholder="РџС–РґС‚РІРµСЂРґСЊС‚Рµ"
+          />
+          <button class="modal-btn" type="submit">РЎС‚РІРѕСЂРёС‚Рё</button>
+        </form>
+        <div class="modal-switch">
+          <button class="modal-switch-btn" onclick="switchToLogin()">
+            Р’С…С–Рґ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/modal.js"></script>
+    <script type="module" src="js/localization.js"></script>
+  </body>
+</html>
+
+
+
+

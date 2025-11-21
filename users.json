@@ -1,0 +1,28 @@
+[
+  {
+    "login": "Darkashas",
+    "password": "Darkashas",
+    "favorites": [
+      "Among Us",
+      "Dota 2",
+      "The Witcher 2",
+      "PUBG",
+      "League of Legends",
+      "Overwatch 2",
+      "Valorant",
+      "Red Dead Redemption 2"
+    ]
+  },
+  {
+    "login": "User12345",
+    "password": "user12345",
+    "favorites": [
+      "Among Us",
+      "The Witcher 2",
+      "League of Legends",
+      "Minecraft",
+      "Dota 2",
+      "Apex Legends"
+    ]
+  }
+]
